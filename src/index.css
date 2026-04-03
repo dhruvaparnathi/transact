@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+.transaction {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.transaction:hover {
+  transform: scale(1.05) translateZ(0);
+}
+
+.transaction:hover + .transaction {
+  transform: scale(1.03);
+}
+
+.transaction:hover + .transaction + .transaction {
+  transform: scale(1.01);
+}
+
+.transaction:has(+ .transaction:hover) {
+  transform: scale(1.03);
+}
+
+.transaction:has(+ .transaction:hover + .transaction) {
+  transform: scale(1.01);
+}
