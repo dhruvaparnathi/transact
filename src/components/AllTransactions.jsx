@@ -10,6 +10,7 @@ import { useContext, useState } from "react";
 import { TransactionDataContext } from "../contexts/TransactionContext";
 import { Search, Filter } from "lucide-react";
 
+
 const AllTransactions = () => {
   const {
     transactions,
@@ -114,11 +115,16 @@ const AllTransactions = () => {
                 <h3 className="text-sm font-medium text-gray-800">
                   {transaction.name}
                 </h3>
-                <span
+                <div>
+                  <span
                   className={`text-xs ${CATEGORIES[transaction.category].text}`}
                 >
                   {transaction.category}
                 </span>
+                <span className="text-xs text-gray-400" >
+                  {" • " + new Date(transaction.id).toLocaleDateString()}
+                </span>
+                </div>
               </div>
             </div>
 
