@@ -91,8 +91,8 @@ const AllTransactions = () => {
       </div>
 
       <div className="divide-y space-y-2 relative">
-        {`${transactions.length === 0 ? "No transactions yet. Start by adding a new transaction!" : ""}`}
-        {filteredTransactions.length === 0 && (
+        {`${(transactions.length === 0 && filter === "All") ? "No transactions yet. Start by adding a new transaction!" : ""}`}
+        {filteredTransactions.length === 0 && filter !== "All" && (
           <p className="text-sm text-gray-500 text-center py-4">
             No matching transactions found 🔍
           </p>
